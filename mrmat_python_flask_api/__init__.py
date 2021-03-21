@@ -21,6 +21,8 @@
 #  SOFTWARE.
 #
 
+import os
 import pkg_resources
 
 __version__ = pkg_resources.get_distribution('mrmat-python-flask-api').version
+__swagger__ = os.path.join(os.path.dirname(__file__), 'swagger')

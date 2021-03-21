@@ -22,6 +22,7 @@
 #
 
 import pytest
+
 from mrmat_python_flask_api.app import cnx
 
 

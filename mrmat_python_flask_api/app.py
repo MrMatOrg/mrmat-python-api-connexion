@@ -22,14 +22,13 @@
 #
 
 import sys
-import os
 import argparse
 import connexion
 
-from mrmat_python_flask_api import __version__
+from mrmat_python_flask_api import __version__, __swagger__
 
-cnx = connexion.App(__name__, specification_dir=os.path.join(os.path.dirname(__file__), 'swagger'))
-
+cnx = connexion.App(__name__, specification_dir=__swagger__)
+cnx.add_api('hello-api-0_1.yaml', base_path='/api/greeting/0.1', strict_validation=True)
 
 @cnx.app.route('/healthz')
 def healthz():
@@ -60,7 +59,6 @@ def main() -> int:
 
     args = parser.parse_args()
 
-    cnx.add_api('hello-api-0_1.yaml', strict_validation=True)
     cnx.run(host=args.host, port=args.port, debug=args.debug)
     return 0
 
