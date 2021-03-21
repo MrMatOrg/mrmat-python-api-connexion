@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  title: Hello Connexion
+  title: Greeting API
   version: '0.1'
   description: The ubiquitous Hello World
 consumes:
@@ -9,7 +9,7 @@ produces:
 - application/json
 basePath: /greeting/0.1
 paths:
-  /greeting:
+  /:
     get:
       tags: [Greeting]
       operationId: mrmat_python_flask_api.apis.hello_api_0_1.get_greeting

@@ -26,7 +26,7 @@ from flask.testing import FlaskClient
 
 
 def test_default_greeting(client: FlaskClient):
-    rv: Response = client.get('/greeting')
+    rv: Response = client.get('/greeting/0.1/')
     json_body = rv.get_json()
     assert 'greeting' in json_body
     assert json_body['greeting'] == 'Hello World'
