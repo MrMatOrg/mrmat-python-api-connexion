@@ -21,12 +21,10 @@
 #  SOFTWARE.
 #
 
-import flask
-
 from mrmat_python_flask_api import __version__
 
 
-def get_greeting(name: str = 'World') -> flask.Response:
+def get_greeting(name: str = 'World'):
     """
     Greeting method for the Hello API 0.1
 
@@ -34,6 +32,4 @@ def get_greeting(name: str = 'World') -> flask.Response:
     :return: A flask response containing the greeting, along with a header stating the API version
     """
     # Alternative for simple cases: return BODY, STATUS, DICT_OF_RESPONSE_HEADERS
-    resp = flask.Response({'greeting': f'Hello {name}'})
-    resp.headers['X-Hello-API-Version'] = __version__
-    return resp
+    return {'greeting': f'Hello {name}'}, 200, {'X-Hello-API-Version': __version__}
