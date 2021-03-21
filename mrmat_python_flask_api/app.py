@@ -22,16 +22,16 @@
 #
 
 import sys
+import os
 import argparse
-
 import connexion
 
 from mrmat_python_flask_api import __version__
 
-app = connexion.App(__name__, specification_dir='swagger/')
+cnx = connexion.App(__name__, specification_dir=os.path.join(os.path.dirname(__file__), 'swagger'))
 
 
-@app.route('/healthz')
+@cnx.app.route('/healthz')
 def healthz():
     """
     Check application health
@@ -42,8 +42,7 @@ def healthz():
 
 def main() -> int:
     """
-    Main entry point for the CLI
-
+    Main entry point
     :return: Exit code
     """
     parser = argparse.ArgumentParser(description=f'mrmat-python-flask-api - {__version__}')
@@ -61,9 +60,8 @@ def main() -> int:
 
     args = parser.parse_args()
 
-    app.add_api('hello-api-0_1.yaml', strict_validation=True)
-    app.run(host=args.host, port=args.port, debug=args.debug)
-
+    cnx.add_api('hello-api-0_1.yaml', strict_validation=True)
+    cnx.run(host=args.host, port=args.port, debug=args.debug)
     return 0
 
 
