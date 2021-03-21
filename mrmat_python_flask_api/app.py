@@ -30,6 +30,7 @@ from mrmat_python_flask_api import __version__, __swagger__
 cnx = connexion.App(__name__, specification_dir=__swagger__)
 cnx.add_api('hello-api-0_1.yaml', base_path='/api/greeting/0.1', strict_validation=True)
 
+
 @cnx.app.route('/healthz')
 def healthz():
     """
