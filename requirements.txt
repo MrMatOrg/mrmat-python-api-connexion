@@ -1,0 +1,4 @@
+# Runtime requirements
+
+flask==1.1.2                    # BSD 3-Clause
+connexion[swagger-ui]==2.7.0    # Apache 2.0

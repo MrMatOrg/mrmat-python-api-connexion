@@ -1,0 +1,38 @@
+swagger: '2.0'
+info:
+  title: Greeting API
+  version: '0.1'
+  description: The ubiquitous Hello World
+consumes:
+- application/json
+produces:
+- application/json
+paths:
+  /:
+    get:
+      tags: [Greeting]
+      operationId: mrmat_python_flask_api.apis.hello_api_0_1.get_greeting
+      summary: Get Greeting
+      parameters:
+      - name: name
+        in: query
+        type: string
+        pattern: "^[a-zA-Z0-9]*$"
+        default: "World"
+      responses:
+        200:
+          description: Return a greeting
+          schema:
+            $ref: '#/definitions/Greeting'
+
+definitions:
+  Greeting:
+    type: object
+    required:
+    - greeting
+    properties:
+      greeting:
+        type: string
+        description: The desired greeting
+        example: "Hello Susie"
+
