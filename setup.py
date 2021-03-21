@@ -21,49 +21,26 @@
 #  SOFTWARE.
 #
 
-#  MIT License
-#
-#
-#  Permission is hereby granted, free of charge, to any person obtaining a copy
-#  of this software and associated documentation files (the "Software"), to deal
-#  in the Software without restriction, including without limitation the rights
-#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-#  copies of the Software, and to permit persons to whom the Software is
-#  furnished to do so, subject to the following conditions:
-#
-#
-#
-
-#  MIT License
-#
-#
-#  Permission is hereby granted, free of charge, to any person obtaining a copy
-#  of this software and associated documentation files (the "Software"), to deal
-#  in the Software without restriction, including without limitation the rights
-#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-#  copies of the Software, and to permit persons to whom the Software is
-#  furnished to do so, subject to the following conditions:
-#
-#
-#
-
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name='mrmat-python-flask-api',
     version='0.0.1',
-    packages=['mrmat_python_flask_api'],
+    packages=find_packages(),
     license='MIT',
     author='imfeldma',
     author_email='imfeldma+9jqerw@gmail.com',
     description='Boilerplate for a Python Flask API',
 
     setup_requires=['flake8'],
+    zip_safe=False,
+    package_data={
+        "": ["*.yaml"]
+    },
 
     entry_points={
         'console_scripts': [
-            'mrmat-python-cli-plain = mrmat_python_cli.plain:main',
-            'mrmat-python-cli-cui = mrmat_python_cli.cui:main'
+            'mrmat-python-flask-api = mrmat_python_flask_api.app:main'
         ]
     }
 )
