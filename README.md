@@ -3,6 +3,8 @@
 Boilerplate code for a Python Flask API
 
 [![Build](https://github.com/MrMatOrg/mrmat-python-flask-api/actions/workflows/build.yml/badge.svg)](https://github.com/MrMatOrg/mrmat-python-flask-api/actions/workflows/build.yml)
+[![SAST](https://github.com/MrMatOrg/mrmat-python-flask-api/actions/workflows/sast.yml/badge.svg)](https://github.com/MrMatOrg/mrmat-python-flask-api/actions/workflows/sast.yml)
+
 
 This variant of a Python Flask API is spec-first and using [Connexion](https://github.com/zalando/connexion) to 
 implement that capability. Also see [Connexion Documentation](https://connexion.readthedocs.io/en/latest/)
