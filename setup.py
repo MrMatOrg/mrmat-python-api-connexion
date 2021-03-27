@@ -24,11 +24,11 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='mrmat-python-flask-api',
+    name='mrmat-python-api-connexion',
     version='0.0.1',
     packages=find_packages(),
     license='MIT',
-    author='imfeldma',
+    author='MrMat',
     author_email='imfeldma+9jqerw@gmail.com',
     description='Boilerplate for a Python Flask API',
 
@@ -41,7 +41,7 @@ setup(
 
     entry_points={
         'console_scripts': [
-            'mrmat-python-flask-api = mrmat_python_flask_api.app:main'
+            'mrmat-python-api-connexion = mrmat_python_api_connexion.app:main'
         ]
     }
 )

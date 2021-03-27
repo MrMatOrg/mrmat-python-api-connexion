@@ -23,7 +23,7 @@
 
 import pytest
 
-from mrmat_python_flask_api.app import cnx
+from mrmat_python_api_connexion.app import cnx
 
 
 @pytest.fixture

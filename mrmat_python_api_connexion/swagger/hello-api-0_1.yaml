@@ -11,7 +11,7 @@ paths:
   /:
     get:
       tags: [Greeting]
-      operationId: mrmat_python_flask_api.apis.hello_api_0_1.get_greeting
+      operationId: mrmat_python_api_connexion.apis.hello_api_0_1.get_greeting
       summary: Get Greeting
       parameters:
       - name: name
