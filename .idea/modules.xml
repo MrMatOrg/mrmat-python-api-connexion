@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/mrmat-python-flask-api.iml" filepath="$PROJECT_DIR$/.idea/mrmat-python-flask-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/mrmat-python-api-connexion.iml" filepath="$PROJECT_DIR$/.idea/mrmat-python-api-connexion.iml" />
     </modules>
   </component>
 </project>

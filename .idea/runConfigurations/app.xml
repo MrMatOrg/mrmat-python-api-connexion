@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="app" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
-    <module name="mrmat-python-flask-api" />
+    <module name="mrmat-python-api-connexion" />
     <option name="INTERPRETER_OPTIONS" value="" />
     <option name="PARENT_ENVS" value="true" />
     <envs>
