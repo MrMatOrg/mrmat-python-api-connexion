@@ -25,7 +25,7 @@ import sys
 import argparse
 import connexion
 
-from mrmat_python_flask_api import __version__, __swagger__
+from mrmat_python_api_connexion import __version__, __swagger__
 
 cnx = connexion.App(__name__, specification_dir=__swagger__)
 cnx.add_api('hello-api-0_1.yaml', base_path='/api/greeting/0.1', strict_validation=True)
@@ -45,7 +45,7 @@ def main() -> int:
     Main entry point
     :return: Exit code
     """
-    parser = argparse.ArgumentParser(description=f'mrmat-python-flask-api - {__version__}')
+    parser = argparse.ArgumentParser(description=f'mrmat-python-api-connexion - {__version__}')
     parser.add_argument('-d', '--debug', action='store_true', dest='debug', help='Debug')
     parser.add_argument('--host',
                         dest='host',

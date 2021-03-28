@@ -21,8 +21,15 @@
 #  SOFTWARE.
 #
 
-import os
-import pkg_resources
+from mrmat_python_api_connexion import __version__
 
-__version__ = pkg_resources.get_distribution('mrmat-python-flask-api').version
-__swagger__ = os.path.join(os.path.dirname(__file__), 'swagger')
+
+def get_greeting(name: str = 'World'):
+    """
+    Greeting method for the Hello API 0.1
+
+    :param name: Optional name to greet, defaults to 'World'
+    :return: A flask response containing the greeting, along with a header stating the API version
+    """
+    # Alternative for simple cases: return BODY, STATUS, DICT_OF_RESPONSE_HEADERS
+    return {'greeting': f'Hello {name}'}, 200, {'X-Hello-API-Version': __version__}

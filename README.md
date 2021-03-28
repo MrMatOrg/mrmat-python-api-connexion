@@ -1,9 +1,9 @@
 # MrMat :: Python :: Flask API :: Spec-First
 
-Boilerplate code for a Python Flask API
+Boilerplate code for a Python Flask API using Connexion
 
-[![Build](https://github.com/MrMatOrg/mrmat-python-flask-api/actions/workflows/build.yml/badge.svg)](https://github.com/MrMatOrg/mrmat-python-flask-api/actions/workflows/build.yml)
-[![SAST](https://github.com/MrMatOrg/mrmat-python-flask-api/actions/workflows/sast.yml/badge.svg)](https://github.com/MrMatOrg/mrmat-python-flask-api/actions/workflows/sast.yml)
+[![Build](https://github.com/MrMatOrg/mrmat-python-api-connexion/actions/workflows/build.yml/badge.svg)](https://github.com/MrMatOrg/mrmat-python-api-connexion/actions/workflows/build.yml)
+[![SAST](https://github.com/MrMatOrg/mrmat-python-api-connexion/actions/workflows/sast.yml/badge.svg)](https://github.com/MrMatOrg/mrmat-python-api-connexion/actions/workflows/sast.yml)
 
 
 This variant of a Python Flask API is spec-first and using [Connexion](https://github.com/zalando/connexion) to 
@@ -20,21 +20,59 @@ Features:
 
 ## How to run this
 
-Start with `mrmat-python-flask-api`. You can specify `--host 0.0.0.0` to listen on a specific API and `--port PORT` to
-override the default 8080.
+You have the choice of running this directly or within a container image. To run this directly (assuming you have create
+the recommended virtualenv):
 
-Once started, you can do curl towards the greeting API at `/api/greeting/0.1/` and `/api/greeting/0.1/?name=Custom`. 
-Note that omitting the last slash will cause a redirect that you can follow using curls -L option. We can probably
-get rid of that by using a more clever versioning scheme that doesn't make the root resource listen on / (e.g. `/greeting`).
+```
+$ pip install -r requirements.txt
+$ python ./setup.py install
+$ mrmat-python-api-connexion -h
+usage: mrmat-python-api-connexion [-h] [-d] [--host HOST] [--port PORT]
 
-You can also navigate to `/ui` to get to the Swagger UI.
+mrmat-python-api-connexion - 0.0.2
+
+optional arguments:
+  -h, --help   show this help message and exit
+  -d, --debug  Debug
+  --host HOST  Host interface to bind to
+  --port PORT  Port to bind to
+
+$ mrmat-python-api-flask --host 0.0.0.0 --port 8080
+ * Serving Flask app "mrmat_python_api_connexion.app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+
+ 
+<Ctrl-C>
+```
+
+To run within a container, first build that container:
+
+```
+$ python ./setup.py sdist
+$ docker build -t mrmat-python-api-connexion:0.0.2 -f var/docker/Dockerfile .
+...
+$ docker run --rm mrmat-python-api-connexion:0.0.2
+...
+```
+
+## How to use this
+
+Once started, you can curl towards the APIs mounted as defined by their base_path declared at the top of `mrmat_python_api_connexion/app.py`.
+The Swagger UI is available by appending `/ui` to that base path.
+
+>Note that omitting the last slash will cause a redirect that you can follow using curls -L option. We can probably
+>get rid of that by using a more clever versioning scheme that doesn't make the root resource listen on / (e.g. `/greeting`).
 
 ## How to test this
 
-Pycharm built-in. If you do it on the CLI, you do need `python -m pytest`, otherwise it'll get confused about loading
-its modules. Also note that the API spec yaml must be added once more when testing in `conftest.py`. The obvious attempt
-to have that done straight within `mrmat_python_flask_api/app.py` outside main doesn't work (and I don't know why).
+Unit tests are within the `tests` directory. You can use the built-in Pycharm test configuration or do it on the CLI.
 
-## How to build this
-
-See the provided Dockerfile.
+```
+$ python ./setup.py install
+$ python -m flake8
+$ python -m pytest
+```
