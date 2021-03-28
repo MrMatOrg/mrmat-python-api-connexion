@@ -1,6 +1,6 @@
 # MrMat :: Python :: Flask API :: Spec-First
 
-Boilerplate code for a Python Flask API
+Boilerplate code for a Python Flask API using Connexion
 
 [![Build](https://github.com/MrMatOrg/mrmat-python-flask-api/actions/workflows/build.yml/badge.svg)](https://github.com/MrMatOrg/mrmat-python-flask-api/actions/workflows/build.yml)
 [![SAST](https://github.com/MrMatOrg/mrmat-python-flask-api/actions/workflows/sast.yml/badge.svg)](https://github.com/MrMatOrg/mrmat-python-flask-api/actions/workflows/sast.yml)
@@ -27,7 +27,7 @@ Once started, you can do curl towards the greeting API at `/api/greeting/0.1/` a
 Note that omitting the last slash will cause a redirect that you can follow using curls -L option. We can probably
 get rid of that by using a more clever versioning scheme that doesn't make the root resource listen on / (e.g. `/greeting`).
 
-You can also navigate to `/ui` to get to the Swagger UI.
+You can also navigate to `/api/greeting/0.1/ui` to get to the Swagger UI.
 
 ## How to test this
 
@@ -37,4 +37,5 @@ to have that done straight within `mrmat_python_flask_api/app.py` outside main d
 
 ## How to build this
 
-See the provided Dockerfile.
+See the provided Dockerfile in `var/docker`. This requires that you have run `python ./setup.py sdist` as a prerequisite
+and will create a container image in which the application is run within a production-ready WSGI server.
